@@ -1,0 +1,33 @@
+import MySQLdb
+import socket
+import MySQLdb
+import collections
+import json
+
+
+j=''
+HOST, PORT = '', 5000
+
+
+while True:
+    listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    listen_socket.bind((HOST, PORT))
+    listen_socket.listen(1)
+    print 'Serving HTTP on port %s ...' % PORT
+    db=MySQLdb.connect("localhost","root","anand@mysql123","paramdb")
+    cursor=db.cursor()
+    client_connection, client_address = listen_socket.accept()
+    print "connected to"+str(client_address)
+    request = client_connection.recv(1024)
+    i=1;
+    query=''
+    while request[-i] != '\n':
+        query=query+ request[-i]
+        i=i+1
+    query=query[::-1]
+    print query
+
+db.close()
+
+
