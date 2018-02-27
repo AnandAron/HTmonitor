@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
+    public  static String data;
     public static String sip;
     public static String query;
     private DatePicker datePicker;
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("################",query);
         String s=new PostTask().execute().get();
         Log.e("ReturnVal", s);
+        data=s;
         tv.setText(s);
         String json = s;
 
@@ -204,6 +206,12 @@ public class MainActivity extends AppCompatActivity {
     public void changeIP(View view) {
         Intent i= new Intent(this,Main2Activity.class);
         startActivity(i);
+    }
+
+    public void showTable(View view) {
+        Intent i= new Intent(this,Main3Activity.class);
+        startActivity(i);
+
     }
 }
 class PostTask extends AsyncTask<URL,Void,String> {

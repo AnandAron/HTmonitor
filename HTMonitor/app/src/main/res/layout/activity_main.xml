@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="post"
-        android:text="Show Graph"
+        android:text="Get Data"
         android:layout_weight="0.2"/>
     </LinearLayout>
 
@@ -56,6 +56,12 @@
         android:layout_height="600dip"
         android:id="@+id/graph"
         android:layout_below="@+id/linearLayout"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Table"
+        android:layout_below="@+id/graph"
+        android:onClick="showTable"/>
 
     <android.support.design.widget.FloatingActionButton
         android:onClick="changeIP"
@@ -65,7 +71,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:clickable="true"
+
         app:srcCompat="@android:drawable/ic_menu_preferences"
         />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/showTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/floatingActionButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:onClick="showTable"
+
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
 
 </RelativeLayout>
